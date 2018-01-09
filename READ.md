@@ -2,6 +2,7 @@
 Python:3.6.1
 Django:1.11
 
+
 ブログサンプルを作成
 csvでのAPIを作成
 

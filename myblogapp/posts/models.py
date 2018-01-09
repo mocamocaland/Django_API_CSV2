@@ -12,3 +12,14 @@ class Post(models.Model):
 
     def summary(self):
         return self.body[:50]
+
+    def to_list(self):
+        return [
+            self.title,
+            self.published,
+            self.image,
+            self.body
+        ]
+
+    class Meta:
+        db_table = "posts_post"
