@@ -6,10 +6,8 @@ from posts.models import (
 
 
 def posts_list(request):
-    json_list = []
-    for post in Post.objects.all():
-        json_list.append(post.to_list())
-    return JsonResponse(json_list, safe=False)
+    posts = [post.to_list() for post in Post.objects.order_by("id").all()]
+    return JsonResponse(posts, safe=False)
 
 
 '''

@@ -7,17 +7,20 @@ class Post(models.Model):
     image = models.ImageField(upload_to='media/')
     body = models.TextField()
 
+
     def __str__(self):
         return self.title
 
+
     def summary(self):
         return self.body[:50]
+
 
     def to_list(self):
         return [
             self.title,
             self.published,
-            self.image,
+            # self.image,
             self.body
         ]
 

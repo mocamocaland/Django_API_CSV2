@@ -3,5 +3,5 @@ from api import views
 
 
 urlpatterns = [
-    url(r"^post/$", views.posts_list, name="posts_list"),
+    url(r"^posts/$", views.posts_list, name="posts_list"),
 ]
