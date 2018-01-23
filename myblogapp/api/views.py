@@ -22,4 +22,4 @@ def posts_list(request):
     writer = csv.writer(response)
     writer.writerow(posts)
 
-    return response
+    return  HttpResponse(response)# response ダウンロードする場合
