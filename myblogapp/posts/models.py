@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 class Post(models.Model):
@@ -17,9 +18,10 @@ class Post(models.Model):
 
 
     def to_list(self):
+        api_date = datetime.strftime(self.published, '%Y/%m/%d')
         return [
             self.title,
-            self.published,
+            api_date,
             # self.image,
             self.body
         ]
