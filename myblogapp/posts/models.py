@@ -22,12 +22,12 @@ class Post(models.Model):
         return "{}, {}, {}".format(self.title, api_date, self.body)
             
         '''  
-            [
+
             self.title,
             api_date,
             # self.image,
             self.body
-        ]
+
         '''
 
     class Meta:
