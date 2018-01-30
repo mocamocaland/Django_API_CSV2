@@ -19,12 +19,16 @@ class Post(models.Model):
 
     def to_list(self):
         api_date = datetime.strftime(self.published, '%Y/%m/%d')
-        return [
+        return "{}, {}, {}".format(self.title, api_date, self.body)
+            
+        '''  
+            [
             self.title,
             api_date,
             # self.image,
             self.body
         ]
+        '''
 
     class Meta:
         db_table = "posts_post"
