@@ -16,10 +16,19 @@ class Post(models.Model):
     def summary(self):
         return self.body[:50]
 
-
-    def to_list(self):
+    # 全件を返すAPI
+    def to_str(self):
         api_date = datetime.strftime(self.published, '%Y/%m/%d')
         return "{}, {}, {}".format(self.title, api_date, self.body)
+
+    # 1件ごとで返すAPI
+    def to_list(self):
+        api_date = datetime.strftime(self.published, '%Y/%m/%d')
+        return [
+            self.title,
+            api_date,
+            self.body
+        ]
             
 
     class Meta:

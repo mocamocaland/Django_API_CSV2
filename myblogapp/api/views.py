@@ -19,7 +19,7 @@ def posts_list(request):
     response = HttpResponse(content_type='text/csv')
     # response['Content-Disposition'] = 'attachment; filename="blog.csv"'
 
-    posts = [post.to_list() for post in Post.objects.order_by("id").all()]
+    posts = [post.to_str() for post in Post.objects.order_by("id").all()]
     writer = csv.writer(response)
     writer.writerow(posts)
 
@@ -29,8 +29,8 @@ def posts_list(request):
 def posts_detail(request, posts_id):
     response = HttpResponse(content_type='text/csv')
 
-    posts = get_object_or_404(Post, pk=posts_id)
+    post = get_object_or_404(Post, pk=posts_id)
     writer = csv.writer(response)
-    writer.writerow(posts)
+    writer.writerow(post.to_list())
 
     return HttpResponse(response)
