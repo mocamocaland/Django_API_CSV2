@@ -1,4 +1,5 @@
 import csv
+from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 # from django.http import JsonResponse
 
@@ -23,3 +24,13 @@ def posts_list(request):
     writer.writerow(posts)
 
     return  HttpResponse(response)# response ダウンロードする場合
+
+
+def posts_detail(request, posts_id):
+    response = HttpResponse(content_type='text/csv')
+
+    posts = get_object_or_404(Post, pk=posts_id)
+    writer = csv.writer(response)
+    writer.writerow(posts)
+
+    return HttpResponse(response)
